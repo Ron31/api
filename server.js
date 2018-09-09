@@ -1,13 +1,13 @@
 var express = require('express');
 var app = express();
 var fs = require("fs");
+let apiRoutes = require("./api-routes")
 
-app.get('/food', function (req, res) {
-   fs.readFile( __dirname + "/" + "food.json", 'utf8', function (err, data) {
-       console.log( data );
-       res.end( data );
-   });
+app.use('/api', apiRoutes)
+app.get('/', function (req, res) {
+   res.send("Docs are coming! We are in rewrite!")
 })
+
 
 var server = app.listen(8081, function () {
 
