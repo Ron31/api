@@ -1,0 +1,10 @@
+{
+    "apfel": {
+        "name": "Apfel",
+        "gesund": "ja"
+    },
+    "birne": {
+        "name": "Birne",
+        "gesund": "ja"
+    }
+}
