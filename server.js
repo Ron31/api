@@ -2,6 +2,13 @@ var express = require('express');
 var app = express();
 var fs = require("fs");
 let apiRoutes = require("./api-routes")
+let bodyParser = require('body-parser');
+var DataBase = require("./database")
+
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+app.use(bodyParser.json());
 
 app.use('/api', apiRoutes)
 app.get('/', function (req, res) {
@@ -15,5 +22,12 @@ var server = app.listen(8081, function () {
   var port = server.address().port
 
   console.log("Example app listening at http://%s:%s", host, port)
+
+  try {
+    DB.sync();
+    console.log("Synced!")
+  } catch {
+    console.log("No Syncing! err!")
+  }
 
 })
