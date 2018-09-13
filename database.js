@@ -1,6 +1,7 @@
 var Sequelize = require('sequelize');
+var config = require('./config.json')
 
-const DB = new Sequelize('foodapi', 'root', 'Nope, i dont leak it!', {
+const DB = new Sequelize('foodapi', 'root', config.MYSQLPW, {
     host: 'localhost',
     dialect: 'mysql',
     pool: {
@@ -14,7 +15,9 @@ const DB = new Sequelize('foodapi', 'root', 'Nope, i dont leak it!', {
 
 const food = DB.define('food', {
     name: Sequelize.STRING,
-    de: Sequelize.STRING
+    de: Sequelize.STRING,
+    calories: Sequelize.INTEGER,
+    category: Sequelize.STRING
 });
   
 class DataBase {
