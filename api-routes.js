@@ -1,4 +1,5 @@
 let router = require('express').Router();
+const helper = require('./helper');
 
 router.get('/', function (req, res) {
     res.json({
@@ -8,10 +9,7 @@ router.get('/', function (req, res) {
 });
 
 router.get('/all', function (req, res) {
-    res.json({
-       status: 'A',
-       message: 'Baum :w00t:',
-    });
+    helper.all(req, res);
 });
 
 router.get('/get', function (req, res) {

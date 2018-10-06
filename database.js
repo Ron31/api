@@ -1,5 +1,5 @@
 var Sequelize = require('sequelize');
-var config = require('./config.json')
+var config = require('./config.json');
 
 const DB = new Sequelize('foodapi', 'root', config.MYSQLPW, {
     host: 'localhost',
@@ -24,3 +24,5 @@ class DataBase {
     static get connection() { return DB; }
     static get food() { return food; }
 }
+
+module.exports = DataBase;

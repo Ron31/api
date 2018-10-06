@@ -1,33 +1,34 @@
 var express = require('express');
 var app = express();
 var fs = require("fs");
-let apiRoutes = require("./api-routes")
+let apiRoutes = require("./api-routes");
 let bodyParser = require('body-parser');
-var DataBase = require("./database")
+var DB = require("./database");
 
 app.use(bodyParser.urlencoded({
   extended: true
 }));
 app.use(bodyParser.json());
 
-app.use('/api', apiRoutes)
+app.use('/api', apiRoutes);
+
 app.get('/', function (req, res) {
    res.send("Docs are coming! We are in rewrite!")
-})
+});
 
 
 var server = app.listen(8081, function () {
 
-  var host = server.address().address
-  var port = server.address().port
+  var host = server.address().address;
+  var port = server.address().port;
 
-  console.log("Example app listening at http://%s:%s", host, port)
+  console.log("Example app listening at http://%s:%s", host, port);
 
   try {
-    DB.sync();
+    DB.connection.sync();
     console.log("Synced!")
-  } catch {
-    console.log("No Syncing! err!")
+  } catch(e) {
+    console.log("No Syncing! err!" + e)
   }
 
-})
+});
