@@ -1,7 +1,7 @@
-var Sequelize = require('sequelize');
+var sequelize = require('sequelize');
 var config = require('./config.json');
 
-const DB = new Sequelize('foodapi', 'root', config.MYSQLPW, {
+const DB = new sequelize('foodapi', 'root', config.MYSQLPW, {
     host: 'localhost',
     dialect: 'mysql',
     pool: {
@@ -13,16 +13,14 @@ const DB = new Sequelize('foodapi', 'root', config.MYSQLPW, {
     operatorsAliases: false
   });
 
-const food = DB.define('food', {
-    name: Sequelize.STRING,
-    de: Sequelize.STRING,
-    calories: Sequelize.INTEGER,
-    category: Sequelize.STRING
+let apikeys = DB.define('apikeys', {
+    key: sequelize.STRING,
+    user: sequelize.STRING
 });
   
 class DataBase {
     static get connection() { return DB; }
-    static get food() { return food; }
+    static get apikeys() { return apikeys; }
 }
 
 module.exports = DataBase;

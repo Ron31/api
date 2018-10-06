@@ -1,7 +1,8 @@
 var express = require('express');
 var app = express();
 var fs = require("fs");
-let apiRoutes = require("./api-routes");
+let apiRoutes = require("./routes/api-routes");
+let imageRoutes = require('./routes/image-routes');
 let bodyParser = require('body-parser');
 var DB = require("./database");
 
@@ -10,7 +11,9 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
+app.use('/api/image', imageRoutes);
 app.use('/api', apiRoutes);
+
 
 app.get('/', function (req, res) {
    res.send("Docs are coming! We are in rewrite!")
