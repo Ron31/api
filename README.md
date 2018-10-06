@@ -1,8 +1,9 @@
-# foodapi
-Food API
+# API
+API
 ## Endpoint:
-185.230.163.29:8081/
+Bald verfügbar!
 ## Result: JSON
+
 
 ### Wichtig!
 API noch im Aufbau!
