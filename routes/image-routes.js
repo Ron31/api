@@ -1,21 +1,21 @@
 let Router = require('express').Router();
-const helper = require('../helper');
+const helper = require('../imagehelper');
 
 Router.get('/', function (req, res) {
+    // TODO: return all image endpoints
     res.json({
        status: 'API Its Working',
        message: 'Baum :w00t:',
     });
 });
 
-Router.get('/all', function (req, res) {
-    helper.all(req, res);
-});
-
-Router.get('/achievement', function (req, res) {
+// TODO: more image endpoints
+Router.post('/achievement', async function (req, res) {
+    let picture = await helper.achievement(req.body.image, req.body.achievment);
     res.json({
-       status: 'B',
-       message: 'Baum :w00t:',
+        status: 'Working!',
+        message: 'Maum',
+        data: picture
     });
 });
 

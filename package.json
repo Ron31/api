@@ -19,8 +19,10 @@
   "homepage": "https://github.com/Ron31/foodapi#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "canvas": "^1.6.12",
     "express": "^4.16.3",
     "mysql2": "^1.6.1",
-    "sequelize": "^4.38.1"
+    "sequelize": "^4.38.1",
+    "snekfetch": "^4.0.4"
   }
 }

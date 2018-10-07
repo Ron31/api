@@ -6,9 +6,12 @@ let imageRoutes = require('./routes/image-routes');
 let bodyParser = require('body-parser');
 var DB = require("./database");
 
+// TODO: für alles: Token check!
+
 app.use(bodyParser.urlencoded({
   extended: true
 }));
+
 app.use(bodyParser.json());
 
 app.use('/api/image', imageRoutes);
