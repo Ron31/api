@@ -8,11 +8,9 @@ var DB = require("./database");
 
 // TODO: für alles: Token check!
 
-app.use(bodyParser.urlencoded({
-  extended: true
-}));
+app.use(bodyParser.json({ type: "application/json"}));
 
-app.use(bodyParser.json());
+//app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/api/image', imageRoutes);
 app.use('/api', apiRoutes);

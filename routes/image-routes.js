@@ -11,6 +11,10 @@ Router.get('/', function (req, res) {
 
 // TODO: more image endpoints
 Router.post('/achievement', async function (req, res) {
+    console.log(req.body.image);
+    console.log('--^image^--\nFolgend: achievment text\n dann token');
+    console.log(req.body.achievment);
+    console.log(req.body.token);
     let picture = await helper.achievement(req.body.image, req.body.achievment);
     res.json({
         status: 'Working!',
