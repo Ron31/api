@@ -17,8 +17,8 @@ class Helper {
         const imgg = new Image();
         imgg.onload = () => ctx.drawImage(imgg, 30, 30, 115, 115);
         imgg.onerror = err => { throw err };
-        let avatarbuffer;
-        require('snekfetch').get(picture).then(r => avatarbuffer = r.body);
+        let request = await require('snekfetch').get(picture);
+        let avatarbuffer = request.body;
         const text = achievment;
 
         ctx.font = '45px Minecraftia';
