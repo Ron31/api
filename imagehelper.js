@@ -33,6 +33,9 @@ class Helper {
 
         return finalimage;
     }
+    static async triggered(picture){
+        return finalimage;
+    }
 }
 
 module.exports = Helper;
