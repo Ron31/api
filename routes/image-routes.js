@@ -7,24 +7,25 @@ Router.get('/', function (req, res) {
 });
 
 // TODO: more image endpoints
-Router.post('/achievement', async function (req, res) {
-    if(!req.body.image || !req.body.achievement) return res.json({
+
+Router.get('/achievement', async (req, res) => {
+    if(!req.query.image || !req.query.achievement) return res.json({
         status: "Error!",
-        message: "Please give under image an image imagelink"
+        message: "Please give under image an imagelink"
     });
-    let picture = await helper.achievement(req.body.image, req.body.achievement);
+    let picture = await helper.achievement(req.query.image, req.query.achievement);
     res.json({
         status: 'Working!',
         data: picture
     });
 });
 
-Router.post('/triggered', async function (req, res) {
-    if(!req.body.image) return res.json({
+Router.get('/triggered', async function (req, res) {
+    if(!req.query.image) return res.json({
         status: "Error!",
         message: "Please give under image an image imagelink"
     });
-    let picture = await helper.triggered(req.body.image);
+    let picture = await helper.triggered(req.query.image);
     res.json({
         status: 'Working!',
         data: picture

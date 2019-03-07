@@ -17,7 +17,7 @@ app.use('/api', apiRoutes);
 
 
 app.get('/', function (req, res) {
-   res.send("Docs are coming! We are in rewrite!")
+   res.send("Docs are coming! We are in rewrite! -> Endpoints: /api & /api/image")
 });
 
 
